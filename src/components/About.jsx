@@ -115,7 +115,7 @@ const About = ({ id }) => {
               {/* Personal Details */}
               <div className="grid grid-cols-2 gap-4 mt-8">
                 {[
-                  { label: 'Experience', value: '3 months', color: 'blue' },
+                  { label: 'Experience', value: '4 months', color: 'blue' },
                   { label: 'Projects', value: '12 project completed', color: 'purple' },
                   { label: 'Technologies', value: '4 Mastered', color: 'pink' },
                   { label: 'Passion', value: '100% Dedicated', color: 'green' }
