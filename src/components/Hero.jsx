@@ -85,18 +85,18 @@ const Hero = ({ id }) => {
     <section id={id} className="min-h-screen flex items-center justify-center relative pt-16 overflow-hidden">
       {/* Full Screen Overlay */}
       <motion.div
-        className="absolute inset-0 w-full h-full z-[100] bg-black/80 backdrop-blur-2xl origin-top"
+        className="absolute inset-0 w-full h-full z-[100] bg-black/80 backdrop-blur-2xl origin-top pointer-events-none"
         variants={overlayVariants}
         initial="initial"
         animate="animate"
         style={{ transformOrigin: "center top" }}
       >
-        <div className="w-full h-full flex items-center justify-center">
+        <div className="w-full h-full flex items-center justify-center px-4">
           <div className="text-center">
-            <h1 className="text-8xl md:text-9xl lg:text-[12rem] font-black text-white tracking-widest font-['Excon',sans-serif]">
+            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[12rem] font-black text-white tracking-widest font-['Excon',sans-serif]">
               PORTFOLIO
             </h1>
-            <div className="w-40 h-3 bg-[#2563EB] mx-auto mt-8 rounded-full"></div>
+            <div className="w-20 sm:w-28 md:w-32 lg:w-40 h-2 md:h-3 bg-[#2563EB] mx-auto mt-6 rounded-full"></div>
           </div>
         </div>
       </motion.div>
