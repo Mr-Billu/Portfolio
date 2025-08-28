@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from 'framer-motion';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const experiences = [
   {
@@ -26,55 +28,112 @@ const experiences = [
 ];
 
 export default function ExperienceSection({id}) {
- return ( <section id={id} className="py-16">
-  <div className="max-w-6xl mx-auto px-6">
-    <h2 className="text-3xl font-bold text-gray-300 mb-12">
-      💼 My Experience
-    </h2>
+  const isVisible = useIntersectionObserver(id);
 
-    {/* 2 column grid */}
-    <div className="grid md:grid-cols-2 gap-12">
-      {experiences.map((exp, i) => (
-        <div
-          key={i}
-          className="bg-gray-800 rounded-2xl shadow-md p-6 text-left"
-        >
-          <div className="flex items-center space-x-4 mb-4">
-            <img
-              src={exp.logo}
-              alt={exp.company}
-              className="w-16 h-16 object-contain"
-            />
-            <div>
-              <h3 className="text-xl font-semibold text-gray-400">
-                {exp.company}
-              </h3>
-              <p className="text-blue-500 font-medium">{exp.role}</p>
-              <p className="text-sm text-gray-500">
-                {exp.type} · {exp.period} · {exp.location}
-              </p>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const cardVariants = {
+    hover: {
+      y: -5,
+      boxShadow: "0 20px 40px rgba(37, 99, 235, 0.1)",
+      transition: {
+        duration: 0.3,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+ return ( 
+  <section id={id} className="py-20 bg-gray-50 relative">
+    <div className="max-w-6xl mx-auto px-6">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8 }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          💼 My Experience
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          Professional journey and growth in frontend development
+        </p>
+      </motion.div>
+
+      {/* 2 column grid */}
+      <motion.div 
+        className="grid md:grid-cols-2 gap-12"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isVisible ? "visible" : "hidden"}
+      >
+        {experiences.map((exp, i) => (
+          <motion.div
+            key={i}
+            className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-left hover:border-blue-400 transition-all duration-300"
+            variants={itemVariants}
+            whileHover="hover"
+            variants={cardVariants}
+          >
+            <div className="flex items-center space-x-4 mb-4">
+              <img
+                src={exp.logo}
+                alt={exp.company}
+                className="w-16 h-16 object-contain rounded-lg"
+              />
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900">
+                  {exp.company}
+                </h3>
+                <p className="text-blue-600 font-medium">{exp.role}</p>
+                <p className="text-sm text-gray-500">
+                  {exp.type} · {exp.period} · {exp.location}
+                </p>
+              </div>
             </div>
-          </div>
 
-          <p className="text-gray-400 leading-relaxed mb-4">
-            {exp.description}
-          </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              {exp.description}
+            </p>
 
-          {/* Skills */}
-          <div className="flex flex-wrap gap-2">
-            {exp.skills.map((skill, idx) => (
-              <span
-                key={idx}
-                className="px-3 py-1 text-sm bg-gray-700 text-gray-300 rounded-md"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      ))}
+            {/* Skills */}
+            <div className="flex flex-wrap gap-2">
+              {exp.skills.map((skill, idx) => (
+                <motion.span
+                  key={idx}
+                  className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-md border border-gray-200"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isVisible ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ delay: 0.5 + idx * 0.1 }}
+                >
+                  {skill}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
-  </div>
-</section>
+  </section>
  );
 }

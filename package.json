@@ -9,8 +9,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+
+    "predeploy": "npm run build && echo > dist/.nojekyll",
+    "deploy": "gh-pages -d dist --dotfiles"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",

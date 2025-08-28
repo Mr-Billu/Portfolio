@@ -20,19 +20,19 @@ const Hero = ({ id }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.2,
+        delayChildren: 0.1
       }
     }
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.7,
         ease: "easeOut"
       }
     }
@@ -40,22 +40,23 @@ const Hero = ({ id }) => {
 
   const buttonVariants = {
     hover: {
-      scale: 1.05,
-      boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)",
+      scale: 1.02,
+      y: -2,
+      boxShadow: "0 20px 40px rgba(37, 99, 235, 0.15)",
       transition: {
         duration: 0.3,
         ease: "easeInOut"
       }
     },
     tap: {
-      scale: 0.95
+      scale: 0.98
     }
   }
 
   const socialVariants = {
     hover: {
-      scale: 1.2,
-      rotate: 5,
+      scale: 1.1,
+      y: -3,
       transition: {
         duration: 0.3,
         ease: "easeInOut"
@@ -75,7 +76,7 @@ const Hero = ({ id }) => {
         >
           {/* Greeting */}
           <motion.p 
-            className="text-blue-400 text-lg md:text-xl font-medium mb-4"
+            className="text-blue-600 text-lg md:text-xl font-medium mb-4"
             variants={itemVariants}
           >
             👋 Hello, I'm
@@ -83,17 +84,15 @@ const Hero = ({ id }) => {
           
           {/* Name */}
           <motion.h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-gray-900"
             variants={itemVariants}
           >
-            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-              Abdul Mueid
-            </span>
+            Abdul Mueid
           </motion.h1>
           
           {/* Title */}
           <motion.h2 
-            className="text-2xl md:text-3xl lg:text-4xl text-gray-300 mb-8 font-light"
+            className="text-2xl md:text-3xl lg:text-4xl text-gray-600 mb-8 font-light"
             variants={itemVariants}
           >
             Frontend Developer & UI/UX Enthusiast
@@ -101,7 +100,7 @@ const Hero = ({ id }) => {
           
           {/* Description */}
           <motion.p 
-            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto mb-12 leading-relaxed"
             variants={itemVariants}
           >
             Crafting beautiful, responsive, and user-centric web experiences with modern technologies. 
@@ -115,7 +114,7 @@ const Hero = ({ id }) => {
           >
             <motion.button
               onClick={() => scrollToSection('projects')}
-              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg"
+              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -123,19 +122,16 @@ const Hero = ({ id }) => {
               View My Work
             </motion.button>
             <motion.a
-  href="https://wa.me/923299655094?text=Hello%20I%20saw%20your%20portfolio%20great%20connecting%20with%20you👋"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="px-8 py-4 border-2 border-green-500 text-green-500 font-semibold rounded-lg hover:bg-green-500 hover:text-white transition-colors duration-300 inline-block text-center"
-  variants={buttonVariants}
-  whileHover="hover"
-  whileTap="tap"
->
-  Chat on WhatsApp
-</motion.a>
-
-
-
+              href="https://wa.me/923299655094?text=Hello%20I%20saw%20your%20portfolio%20great%20connecting%20with%20you👋"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border-2 border-green-600 text-green-600 font-semibold rounded-lg hover:bg-green-600 hover:text-white transition-all duration-300 inline-block text-center"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              Chat on WhatsApp
+            </motion.a>
           </motion.div>
         </motion.div>
 
@@ -150,7 +146,7 @@ const Hero = ({ id }) => {
             href="https://github.com/Mr-Billu"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+            className="text-gray-500 hover:text-blue-600 transition-colors duration-300"
             variants={socialVariants}
             whileHover="hover"
           >
@@ -163,7 +159,7 @@ const Hero = ({ id }) => {
             href="https://www.linkedin.com/in/abdul-mueid-73288a341/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+            className="text-gray-500 hover:text-blue-600 transition-colors duration-300"
             variants={socialVariants}
             whileHover="hover"
           >
@@ -172,31 +168,28 @@ const Hero = ({ id }) => {
             </svg>
           </motion.a>
           
-        
           <motion.a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=abdulmueid051@gmail.com"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
-  variants={socialVariants}
-  whileHover="hover"
->
-  <svg
-    className="w-8 h-8"
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2}
-      d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-    />
-  </svg>
-</motion.a>
-
-
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=abdulmueid051@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-blue-600 transition-colors duration-300"
+            variants={socialVariants}
+            whileHover="hover"
+          >
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+          </motion.a>
         </motion.div>
 
         {/* Scroll Indicator */}

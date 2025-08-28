@@ -53,7 +53,7 @@ const About = ({ id }) => {
   }
 
   const techVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+    hidden: { opacity: 0, scale: 0.9 },
     visible: (i) => ({
       opacity: 1,
       scale: 1,
@@ -67,7 +67,7 @@ const About = ({ id }) => {
   const cardVariants = {
     hover: {
       y: -5,
-      boxShadow: "0 20px 40px rgba(59, 130, 246, 0.1)",
+      boxShadow: "0 20px 40px rgba(37, 99, 235, 0.1)",
       transition: {
         duration: 0.3,
         ease: "easeInOut"
@@ -76,7 +76,7 @@ const About = ({ id }) => {
   }
 
   return (
-    <section id={id} className="py-20 bg-gray-800/50 relative">
+    <section id={id} className="py-20 bg-gray-50 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div 
@@ -85,12 +85,10 @@ const About = ({ id }) => {
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-              About Me
-            </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            About Me
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Passionate frontend developer with a keen eye for design and user experience
           </p>
         </motion.div>
@@ -104,11 +102,11 @@ const About = ({ id }) => {
           {/* Left Column - Personal Info */}
           <motion.div variants={itemVariants}>
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-white mb-4">Who I Am</h3>
-              <p className="text-gray-300 leading-relaxed text-lg">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Who I Am</h3>
+              <p className="text-gray-700 leading-relaxed text-lg">
                 As a frontend developer, I focus on building intuitive, visually appealing, and high-performance web interfaces. My expertise lies in transforming ideas and designs into seamless user experiences using the latest web technologies.
               </p>
-              <p className="text-gray-300 leading-relaxed text-lg">
+              <p className="text-gray-700 leading-relaxed text-lg">
                 I thrive on solving real-world problems through code, and I enjoy collaborating with teams to deliver pixel-perfect, responsive, and accessible applications. Staying updated with modern frameworks and best practices is at the core of my approach to frontend development.
               </p>
               
@@ -122,15 +120,15 @@ const About = ({ id }) => {
                 ].map((item, index) => (
                   <motion.div 
                     key={item.label}
-                    className={`bg-gray-700/50 p-4 rounded-lg border border-gray-600 hover:border-blue-400 transition-colors duration-300`}
+                    className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-400 transition-colors duration-300 shadow-sm"
                     variants={cardVariants}
                     whileHover="hover"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isVisible ? { opacity: 1, y: 0 } : {}}
                     transition={{ delay: 0.3 + index * 0.1 }}
                   >
-                    <h4 className={`text-${item.color}-400 font-semibold mb-2`}>{item.label}</h4>
-                    <p className="text-white">{item.value}</p>
+                    <h4 className={`text-${item.color}-600 font-semibold mb-2`}>{item.label}</h4>
+                    <p className="text-gray-900">{item.value}</p>
                   </motion.div>
                 ))}
               </div>
@@ -139,7 +137,7 @@ const About = ({ id }) => {
 
           {/* Right Column - Skills */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-semibold text-white mb-6">Technical Skills</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-6">Technical Skills</h3>
             
             {/* Skill Bars */}
             <div className="space-y-4 mb-8">
@@ -152,10 +150,10 @@ const About = ({ id }) => {
                   transition={{ delay: 0.5 + index * 0.1 }}
                 >
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-300 font-medium">{skill.name}</span>
-                    <span className="text-blue-400 font-semibold">{skill.level}%</span>
+                    <span className="text-gray-700 font-medium">{skill.name}</span>
+                    <span className="text-blue-600 font-semibold">{skill.level}%</span>
                   </div>
-                  <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
                     <motion.div 
                       className={`h-2 bg-gradient-to-r ${skill.color} rounded-full`}
                       custom={skill.level}
@@ -170,20 +168,20 @@ const About = ({ id }) => {
 
             {/* Technologies Grid */}
             <div>
-              <h4 className="text-lg font-semibold text-white mb-4">Technologies & Tools</h4>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Technologies & Tools</h4>
               <div className="flex flex-wrap gap-2">
                 {technologies.map((tech, index) => (
                   <motion.span 
                     key={tech}
-                    className="px-3 py-1 bg-gray-700/50 text-gray-300 rounded-full text-sm border border-gray-600 hover:border-blue-400 hover:text-blue-400 transition-all duration-300 cursor-pointer"
+                    className="px-3 py-1 bg-white text-gray-700 rounded-full text-sm border border-gray-200 hover:border-blue-400 hover:text-blue-600 transition-all duration-300 cursor-pointer shadow-sm"
                     custom={index}
                     variants={techVariants}
                     initial="hidden"
                     animate={isVisible ? "visible" : "hidden"}
                     whileHover={{
-                      scale: 1.1,
+                      scale: 1.05,
                       y: -2,
-                      boxShadow: "0 5px 15px rgba(59, 130, 246, 0.3)"
+                      boxShadow: "0 5px 15px rgba(37, 99, 235, 0.2)"
                     }}
                   >
                     {tech}
@@ -202,14 +200,14 @@ const About = ({ id }) => {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.div 
-            className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 p-8 rounded-2xl border border-gray-600 hover:border-blue-500 transition-colors duration-300"
+            className="bg-white p-8 rounded-2xl border border-gray-200 hover:border-blue-500 transition-colors duration-300 shadow-sm"
             whileHover={{
               y: -5,
-              boxShadow: "0 20px 40px rgba(59, 130, 246, 0.1)"
+              boxShadow: "0 20px 40px rgba(37, 99, 235, 0.1)"
             }}
           >
-            <h3 className="text-2xl font-semibold text-white mb-4">What Drives Me</h3>
-            <p className="text-gray-300 text-lg max-w-4xl mx-auto leading-relaxed">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">What Drives Me</h3>
+            <p className="text-gray-700 text-lg max-w-4xl mx-auto leading-relaxed">
               I believe in the power of clean, maintainable code and user-centered design. Every project I work on 
               is an opportunity to learn something new and push the boundaries of what's possible on the web. 
               I'm always excited to collaborate with teams that share my passion for excellence and innovation.
