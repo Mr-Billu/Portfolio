@@ -64,8 +64,43 @@ const Hero = ({ id }) => {
     }
   }
 
+  const overlayVariants = {
+    initial: { 
+      scale: 1,
+      borderRadius: "0%"
+    },
+    animate: { 
+      scale: 0,
+      borderRadius: "50%",
+      y: "-50vh",
+      transition: {
+        duration: 2,
+        ease: "easeInOut",
+        delay: 1
+      }
+    }
+  }
+
   return (
-    <section id={id} className="min-h-screen flex items-center justify-center relative pt-16">
+    <section id={id} className="min-h-screen flex items-center justify-center relative pt-16 overflow-hidden">
+      {/* Full Screen Overlay */}
+      <motion.div
+        className="absolute inset-0 w-full h-full z-[100] bg-black/80 backdrop-blur-2xl origin-top"
+        variants={overlayVariants}
+        initial="initial"
+        animate="animate"
+        style={{ transformOrigin: "center top" }}
+      >
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="text-center">
+            <h1 className="text-8xl md:text-9xl lg:text-[12rem] font-black text-white tracking-widest font-['Excon',sans-serif]">
+              PORTFOLIO
+            </h1>
+            <div className="w-40 h-3 bg-[#2563EB] mx-auto mt-8 rounded-full"></div>
+          </div>
+        </div>
+      </motion.div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Main Content */}
         <motion.div 
@@ -76,7 +111,7 @@ const Hero = ({ id }) => {
         >
           {/* Greeting */}
           <motion.p 
-            className="text-blue-600 text-lg md:text-xl font-medium mb-4"
+            className="text-[#2563EB] text-lg md:text-xl font-medium mb-4"
             variants={itemVariants}
           >
             👋 Hello, I'm
@@ -84,7 +119,7 @@ const Hero = ({ id }) => {
           
           {/* Name */}
           <motion.h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-gray-900"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-[#121212]"
             variants={itemVariants}
           >
             Abdul Mueid
@@ -92,7 +127,7 @@ const Hero = ({ id }) => {
           
           {/* Title */}
           <motion.h2 
-            className="text-2xl md:text-3xl lg:text-4xl text-gray-600 mb-8 font-light"
+            className="text-2xl md:text-3xl lg:text-4xl text-[#6B7280] mb-8 font-light"
             variants={itemVariants}
           >
             Frontend Developer & UI/UX Enthusiast
@@ -100,7 +135,7 @@ const Hero = ({ id }) => {
           
           {/* Description */}
           <motion.p 
-            className="text-lg md:text-xl text-gray-500 max-w-3xl mx-auto mb-12 leading-relaxed"
+            className="text-lg md:text-xl text-[#6B7280] max-w-3xl mx-auto mb-12 leading-relaxed"
             variants={itemVariants}
           >
             Crafting beautiful, responsive, and user-centric web experiences with modern technologies. 
@@ -114,7 +149,7 @@ const Hero = ({ id }) => {
           >
             <motion.button
               onClick={() => scrollToSection('projects')}
-              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300"
+              className="px-8 py-4 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -125,7 +160,7 @@ const Hero = ({ id }) => {
               href="https://wa.me/923299655094?text=Hello%20I%20saw%20your%20portfolio%20great%20connecting%20with%20you👋"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 border-2 border-green-600 text-green-600 font-semibold rounded-lg hover:bg-green-600 hover:text-white transition-all duration-300 inline-block text-center"
+              className="px-8 py-4 border-2 border-[#121212] text-[#121212] font-semibold rounded-xl hover:bg-[#121212] hover:text-white transition-all duration-300 inline-block text-center"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -146,7 +181,7 @@ const Hero = ({ id }) => {
             href="https://github.com/Mr-Billu"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-500 hover:text-blue-600 transition-colors duration-300"
+            className="text-[#6B7280] hover:text-[#2563EB] transition-colors duration-300"
             variants={socialVariants}
             whileHover="hover"
           >
@@ -159,7 +194,7 @@ const Hero = ({ id }) => {
             href="https://www.linkedin.com/in/abdul-mueid-73288a341/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-500 hover:text-blue-600 transition-colors duration-300"
+            className="text-[#6B7280] hover:text-[#2563EB] transition-colors duration-300"
             variants={socialVariants}
             whileHover="hover"
           >
@@ -172,7 +207,7 @@ const Hero = ({ id }) => {
             href="https://mail.google.com/mail/?view=cm&fs=1&to=abdulmueid051@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-500 hover:text-blue-600 transition-colors duration-300"
+            className="text-[#6B7280] hover:text-[#2563EB] transition-colors duration-300"
             variants={socialVariants}
             whileHover="hover"
           >
@@ -203,7 +238,7 @@ const Hero = ({ id }) => {
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-[#6B7280]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </motion.div>

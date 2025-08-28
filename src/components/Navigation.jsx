@@ -38,7 +38,7 @@ const Navigation = ({ activeSection }) => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-gray-900">
+            <h1 className="text-2xl font-bold text-[#121212]">
               Abdul Mueid
             </h1>
           </div>
@@ -50,10 +50,10 @@ const Navigation = ({ activeSection }) => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:text-blue-600 ${
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:text-[#2563EB] ${
                     activeSection === item.id
-                      ? 'text-blue-600 border-b-2 border-blue-600'
-                      : 'text-gray-700 hover:text-blue-600'
+                      ? 'text-[#2563EB] border-b-2 border-[#2563EB]'
+                      : 'text-[#6B7280] hover:text-[#2563EB]'
                   }`}
                 >
                   {item.label}
@@ -64,7 +64,7 @@ const Navigation = ({ activeSection }) => {
                 href="https://drive.google.com/file/d/1D83lQlTciB2JHq5aXt5g4pKeC51LyTbO/view?usp=drivesdk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl"
+                className="px-4 py-2 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 Get Resume
               </a>
@@ -76,7 +76,7 @@ const Navigation = ({ activeSection }) => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-gray-900 p-2"
+              className="text-[#6B7280] hover:text-[#121212] p-2"
             >
               <svg
                 className="h-6 w-6"
@@ -114,8 +114,8 @@ const Navigation = ({ activeSection }) => {
                   onClick={() => scrollToSection(item.id)}
                   className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'text-blue-600 bg-blue-50'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                      ? 'text-[#2563EB] bg-blue-50'
+                      : 'text-[#6B7280] hover:text-[#2563EB] hover:bg-gray-50'
                   }`}
                 >
                   {item.label}

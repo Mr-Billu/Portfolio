@@ -55,7 +55,8 @@ export default function ExperienceSection({id}) {
   const cardVariants = {
     hover: {
       y: -5,
-      boxShadow: "0 20px 40px rgba(37, 99, 235, 0.1)",
+      scale: 1.03,
+      boxShadow: "0 12px 25px rgba(37, 99, 235, 0.2)",
       transition: {
         duration: 0.3,
         ease: "easeInOut"
@@ -64,7 +65,7 @@ export default function ExperienceSection({id}) {
   };
 
  return ( 
-  <section id={id} className="py-20 bg-gray-50 relative">
+  <section id={id} className="py-20 bg-white relative">
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -72,10 +73,10 @@ export default function ExperienceSection({id}) {
         transition={{ duration: 0.8 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-[#121212] mb-6">
           💼 My Experience
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+        <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
           Professional journey and growth in frontend development
         </p>
       </motion.div>
@@ -90,10 +91,9 @@ export default function ExperienceSection({id}) {
         {experiences.map((exp, i) => (
           <motion.div
             key={i}
-            className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 text-left hover:border-blue-400 transition-all duration-300"
+            className="bg-white p-6 text-left rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg"
             variants={itemVariants}
             whileHover="hover"
-            variants={cardVariants}
           >
             <div className="flex items-center space-x-4 mb-4">
               <img
@@ -102,17 +102,17 @@ export default function ExperienceSection({id}) {
                 className="w-16 h-16 object-contain rounded-lg"
               />
               <div>
-                <h3 className="text-xl font-semibold text-gray-900">
+                <h3 className="text-xl font-semibold text-[#121212]">
                   {exp.company}
                 </h3>
-                <p className="text-blue-600 font-medium">{exp.role}</p>
-                <p className="text-sm text-gray-500">
+                <p className="text-[#2563EB] font-medium">{exp.role}</p>
+                <p className="text-sm text-[#6B7280]">
                   {exp.type} · {exp.period} · {exp.location}
                 </p>
               </div>
             </div>
 
-            <p className="text-gray-700 leading-relaxed mb-4">
+            <p className="text-[#6B7280] leading-relaxed mb-4">
               {exp.description}
             </p>
 
@@ -121,7 +121,7 @@ export default function ExperienceSection({id}) {
               {exp.skills.map((skill, idx) => (
                 <motion.span
                   key={idx}
-                  className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-md border border-gray-200"
+                  className="px-3 py-1 text-sm bg-gray-100 text-[#6B7280] rounded-md border border-gray-200"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={isVisible ? { opacity: 1, scale: 1 } : {}}
                   transition={{ delay: 0.5 + idx * 0.1 }}

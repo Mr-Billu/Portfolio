@@ -109,10 +109,10 @@ const Projects = ({ id }) => {
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#121212]">
             My Projects
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
             A collection of projects that showcase my skills and passion for web development
           </p>
         </motion.div>
@@ -129,11 +129,12 @@ const Projects = ({ id }) => {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:border-blue-500 transition-all duration-300 group shadow-sm hover:shadow-lg"
+              className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group"
               variants={cardVariants}
               whileHover={{
-                y: -10,
-                transition: { duration: 0.3 }
+                y: -5,
+                scale: 1.03,
+                boxShadow: "0 12px 25px rgba(37, 99, 235, 0.2)"
               }}
             >
             
@@ -141,15 +142,15 @@ const Projects = ({ id }) => {
             
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">{project.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">{project.description}</p>
+                <h3 className="text-xl font-semibold text-[#121212] mb-3 group-hover:text-[#2563EB] transition-colors duration-300">{project.title}</h3>
+                <p className="text-[#6B7280] text-sm leading-relaxed mb-4">{project.description}</p>
                 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, idx) => (
                     <motion.span
                       key={tech}
-                      className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-md border border-gray-200 group-hover:border-blue-400 transition-colors duration-300"
+                      className="px-2 py-1 bg-gray-100 text-[#6B7280] text-xs rounded-md border border-gray-200 group-hover:border-[#2563EB] transition-colors duration-300"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: idx * 0.1 }}
@@ -165,7 +166,7 @@ const Projects = ({ id }) => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 text-center py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
+                    className="flex-1 bg-gray-100 hover:bg-gray-200 text-[#6B7280] text-center py-2 px-4 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2"
                     variants={buttonVariants}
                     whileHover="hover"
                     whileTap="tap"
@@ -206,7 +207,7 @@ const Projects = ({ id }) => {
             href="https://github.com/Mr-Billu"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
             whileHover={{
               scale: 1.02,
               y: -2,

@@ -31,10 +31,7 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
-      {/* Grid Background */}
-      <div className="fixed inset-0 grid-background-animated pointer-events-none z-0" />
-      
+    <div className="min-h-screen bg-white text-[#121212] overflow-x-hidden">
       <Navigation activeSection={activeSection} />
       
       <main className="relative z-10">
