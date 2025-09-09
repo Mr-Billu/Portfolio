@@ -40,7 +40,7 @@ const Navigation = ({ activeSection }) => {
         border: "1px solid rgba(255, 255, 255, 0.1)",
         backdropFilter: "blur(16px) saturate(120%)",
         WebkitBackdropFilter: "blur(16px) saturate(120%)",
-        padding: "0.3rem 0.4rem",
+        
         boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.05) , 0 1px 20px rgba(0, 0, 0, 0.25)"
       }}
     >
@@ -48,7 +48,7 @@ const Navigation = ({ activeSection }) => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-[#121212]">
+            <h1 className="text-2xl font-bold text-blue-600">
               Abdul Mueid
             </h1>
           </div>

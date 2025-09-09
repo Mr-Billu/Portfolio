@@ -132,7 +132,7 @@ const Projects = ({ id }) => {
               className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group"
               style={{
                 scrollSnapAlign: 'start',
-                boxShadow: "inset 0 0 30px rgba(3, 3, 3, 0.2)"
+                boxShadow: "inset 0 0 20px rgba(3, 3, 3, 0.2)"
               }}
               variants={cardVariants}
               whileHover={{

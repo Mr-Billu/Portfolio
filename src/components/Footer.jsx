@@ -35,7 +35,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h3 className="text-2xl font-bold text-[#121212]">
+            <h3 className="text-2xl font-bold text-blue-600">
               Portfolio
             </h3>
             <p className="text-[#6B7280] text-sm mt-2">

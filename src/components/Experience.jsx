@@ -94,7 +94,7 @@ export default function ExperienceSection({id}) {
             className="bg-white p-6 text-left rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg"
             style={{
               scrollSnapAlign: 'start',
-              boxShadow: "inset 0 0 30px rgba(3, 3, 3, 0.2)"
+              boxShadow: "inset 0 0 20px rgba(3, 3, 3, 0.2)"
             }}
             whileHover={{
               boxShadow: "inset 0 0 150px rgba(3, 3, 3, 0.2)"
