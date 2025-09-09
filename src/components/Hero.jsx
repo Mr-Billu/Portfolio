@@ -71,12 +71,11 @@ const Hero = ({ id }) => {
     },
     animate: { 
       scale: 0,
-      borderRadius: "50%",
+      borderRadius: "150%",
       y: "-50vh",
       transition: {
-        duration: 2,
-        ease: "easeInOut",
-        delay: 1
+        duration: 3,
+        ease: "easeInOut"
       }
     }
   }
@@ -85,7 +84,7 @@ const Hero = ({ id }) => {
     <section id={id} className="min-h-screen flex items-center justify-center relative pt-16 overflow-hidden">
       {/* Full Screen Overlay */}
       <motion.div
-        className="absolute inset-0 w-full h-full z-[100] bg-black/80 backdrop-blur-2xl origin-top pointer-events-none"
+        className="absolute inset-0 w-full h-full z-[100] bg-black/80 backdrop-blur-5xl origin-top pointer-events-none"
         variants={overlayVariants}
         initial="initial"
         animate="animate"
@@ -111,7 +110,7 @@ const Hero = ({ id }) => {
         >
           {/* Greeting */}
           <motion.p 
-            className="text-[#2563EB] text-lg md:text-xl font-medium mb-4"
+            className="text-[#2563EB] text-lg md:text-xl font-medium mt-4"
             variants={itemVariants}
           >
             👋 Hello, I'm
@@ -149,7 +148,7 @@ const Hero = ({ id }) => {
           >
             <motion.button
               onClick={() => scrollToSection('projects')}
-              className="px-8 py-4 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
+              className="px-8 py-4 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl cursor-pointer"
               variants={buttonVariants}
               whileHover="hover"
               whileTap="tap"
@@ -160,9 +159,11 @@ const Hero = ({ id }) => {
               href="https://wa.me/923299655094?text=Hello%20I%20saw%20your%20portfolio%20great%20connecting%20with%20you👋"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 border-2 border-[#121212] text-[#121212] font-semibold rounded-xl hover:bg-[#121212] hover:text-white transition-all duration-300 inline-block text-center"
+              className="px-8 py-4 border-2 border-green-500 text-green-500 font-semibold rounded-xl hover:bg-[#121212] hover:text-white transition-all duration-300 inline-block text-center"
               variants={buttonVariants}
-              whileHover="hover"
+              whileHover={{
+               backgroundColor: "green",
+              }}
               whileTap="tap"
             >
               Chat on WhatsApp

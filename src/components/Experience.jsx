@@ -74,7 +74,7 @@ export default function ExperienceSection({id}) {
         className="text-center mb-12"
       >
         <h2 className="text-4xl md:text-5xl font-bold text-[#121212] mb-6">
-          💼 My Experience
+          💼  Experience
         </h2>
         <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
           Professional journey and growth in frontend development
@@ -92,8 +92,15 @@ export default function ExperienceSection({id}) {
           <motion.div
             key={i}
             className="bg-white p-6 text-left rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg"
+            style={{
+              scrollSnapAlign: 'start',
+              boxShadow: "inset 0 0 30px rgba(3, 3, 3, 0.2)"
+            }}
+            whileHover={{
+              boxShadow: "inset 0 0 150px rgba(3, 3, 3, 0.2)"
+            }}
             variants={itemVariants}
-            whileHover="hover"
+            
           >
             <div className="flex items-center space-x-4 mb-4">
               <img

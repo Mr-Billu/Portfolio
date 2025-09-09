@@ -87,8 +87,8 @@ const About = ({ id }) => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#121212]">
-            About Me
-          </h2>
+            About 
+         </h2>
           <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
             Passionate frontend developer with a keen eye for design and user experience
           </p>
@@ -121,12 +121,18 @@ const About = ({ id }) => {
                 ].map((item, index) => (
                   <motion.div 
                     key={item.label}
-                    className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg"
+                    className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm "
+                    style={{
+                      scrollSnapAlign: 'start',
+                      boxShadow: "inset 0 0 30px rgba(3, 3, 3, 0.2)"
+                    }}
+                  whileHover={{
+                    boxShadow: "inset 0 0 60px rgba(3, 3, 3, 0.2)"
+                  }}
                     variants={cardVariants}
-                    whileHover="hover"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.3 + index * 0.1 }}
+                    transition={{ delay: 0 + index * 0.1 }}
                   >
                     <h4 className={`text-${item.color}-600 font-semibold mb-2`}>{item.label}</h4>
                     <p className="text-[#121212]">{item.value}</p>
@@ -202,10 +208,14 @@ const About = ({ id }) => {
         >
           <motion.div 
             className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg"
+            style={{
+              scrollSnapAlign: 'start',
+              boxShadow: "inset 0 0 30px rgba(3, 3, 3, 0.2)"
+            }}
             whileHover={{
               y: -5,
               scale: 1.03,
-              boxShadow: "0 12px 25px rgba(37, 99, 235, 0.2)"
+              boxShadow: "inset 0 0 100px rgba(3, 3, 3, 0.2)"
             }}
           >
             <h3 className="text-2xl font-semibold text-[#121212] mb-4">What Drives Me</h3>

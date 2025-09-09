@@ -33,7 +33,17 @@ const Navigation = ({ activeSection }) => {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{
+        background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02))",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        backdropFilter: "blur(16px) saturate(120%)",
+        WebkitBackdropFilter: "blur(16px) saturate(120%)",
+        padding: "0.3rem 0.4rem",
+        boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.05) , 0 1px 20px rgba(0, 0, 0, 0.25)"
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -50,7 +60,7 @@ const Navigation = ({ activeSection }) => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:text-[#2563EB] ${
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:text-[#2563EB] cursor-pointer ${
                     activeSection === item.id
                       ? 'text-[#2563EB] border-b-2 border-[#2563EB]'
                       : 'text-[#6B7280] hover:text-[#2563EB]'
@@ -61,10 +71,10 @@ const Navigation = ({ activeSection }) => {
                 
               ))}
               <a
-                href="https://drive.google.com/file/d/1D83lQlTciB2JHq5aXt5g4pKeC51LyTbO/view?usp=drivesdk"
+                href="https://drive.google.com/file/d/1T78e6TwT3WxxR7Vq0d6usF4qzb48b9Vd/view?usp=drivesdk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
+                className="px-4 py-2 bg-[#2563EB] hover:bg-blue-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl  "
               >
                 Get Resume
               </a>

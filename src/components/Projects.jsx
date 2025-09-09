@@ -110,7 +110,7 @@ const Projects = ({ id }) => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#121212]">
-            My Projects
+            Projects
           </h2>
           <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
             A collection of projects that showcase my skills and passion for web development
@@ -130,11 +130,15 @@ const Projects = ({ id }) => {
             <motion.div
               key={project.id}
               className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group"
+              style={{
+                scrollSnapAlign: 'start',
+                boxShadow: "inset 0 0 30px rgba(3, 3, 3, 0.2)"
+              }}
               variants={cardVariants}
               whileHover={{
                 y: -5,
                 scale: 1.03,
-                boxShadow: "0 12px 25px rgba(37, 99, 235, 0.2)"
+                boxShadow: "inset 0 0 200px rgba(3, 3, 3, 0.2)"
               }}
             >
             
