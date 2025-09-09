@@ -1,6 +1,25 @@
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 
 const Footer = () => {
+  const [isFooterVisible, setIsFooterVisible] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const footer = document.querySelector('footer')
+      if (footer) {
+        const rect = footer.getBoundingClientRect()
+        setIsFooterVisible(rect.top <= window.innerHeight && rect.bottom >= 0)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
   
   const socialVariants = {
     hover: {
@@ -24,7 +43,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="relative bg-white border-t border-gray-200">
+    <footer className="relative bg-[#FEFEFE] border-t border-gray-200">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col items-center space-y-8">
           
@@ -35,10 +54,10 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h3 className="text-2xl font-bold text-blue-600">
+            <h3 className="text-2xl font-bold text-[#1A1A1A]" style={{ fontFamily: 'Coolvetica, sans-serif' }}>
               Portfolio
             </h3>
-            <p className="text-[#6B7280] text-sm mt-2">
+            <p className="text-gray-500 text-sm mt-2">
               Crafting digital experiences with passion
             </p>
           </motion.div>
@@ -54,7 +73,7 @@ const Footer = () => {
               href="https://github.com/Mr-Billu"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#6B7280] hover:text-[#2563EB] transition-colors duration-300 relative group"
+              className="text-gray-500 hover:text-[#2563EB] transition-colors duration-300 relative group"
               variants={socialVariants}
               whileHover="hover"
             >
@@ -68,7 +87,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/abdul-mueid-73288a341/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#6B7280] hover:text-[#2563EB] transition-colors duration-300 relative group"
+              className="text-gray-500 hover:text-[#2563EB] transition-colors duration-300 relative group"
               variants={socialVariants}
               whileHover="hover"
             >
@@ -82,7 +101,7 @@ const Footer = () => {
               href="https://mail.google.com/mail/?view=cm&fs=1&to=abdulmueid051@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#6B7280] hover:text-[#2563EB] transition-colors duration-300 relative group"
+              className="text-gray-500 hover:text-[#2563EB] transition-colors duration-300 relative group"
               variants={socialVariants}
               whileHover="hover"
             >
@@ -118,12 +137,32 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-center"
           >
-            <p className="text-[#6B7280] text-sm">
+            <p className="text-gray-500 text-sm">
                Made with ❤️ by Abdul Mueid
             </p>
           </motion.div>
 
         </div>
+
+        {/* Back to Top Button */}
+        {isFooterVisible && (
+          <motion.button
+            onClick={scrollToTop}
+            className="fixed bottom-8 right-8 bg-blue-400 hover:bg-blue-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 z-50"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0 }}
+            whileHover={{ 
+              scale: 1.1,
+              boxShadow: "0 10px 30px rgba(59, 130, 246, 0.3)"
+            }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+          </motion.button>
+        )}
       </div>
     </footer>
   )

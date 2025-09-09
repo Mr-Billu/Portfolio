@@ -31,7 +31,7 @@ function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white text-[#121212] overflow-x-hidden">
+    <div className="min-h-screen bg-[#FEFEFE] text-gray-900 overflow-x-hidden">
       <Navigation activeSection={activeSection} />
       
       <main className="relative z-10">

@@ -20,20 +20,37 @@ const Hero = ({ id }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        staggerChildren: 0.1,
+        staggerDirection: -1
       }
     }
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 20, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
         duration: 0.7,
         ease: "easeOut"
+      }
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
+      scale: 0.95,
+      transition: {
+        duration: 0.4,
+        ease: "easeIn"
       }
     }
   }
@@ -92,8 +109,8 @@ const Hero = ({ id }) => {
       >
         <div className="w-full h-full flex items-center justify-center px-4">
           <div className="text-center">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[12rem] font-black text-white tracking-widest font-['Excon',sans-serif]">
-              PORTFOLIO
+            <h1 className="text-white text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[12rem] tracking-widest font-['Excon',sans-serif]">
+                      <span className="text-blue-500">PORTFOLIO</span>
             </h1>
             <div className="w-20 sm:w-28 md:w-32 lg:w-40 h-2 md:h-3 bg-[#2563EB] mx-auto mt-6 rounded-full"></div>
           </div>
@@ -110,7 +127,7 @@ const Hero = ({ id }) => {
         >
           {/* Greeting */}
           <motion.p 
-            className="text-[#2563EB] text-lg md:text-xl font-medium mt-4"
+            className="text-[#2563EB] text-lg md:text-xl font-medium mt-8"
             variants={itemVariants}
           >
             👋 Hello, I'm
@@ -118,7 +135,7 @@ const Hero = ({ id }) => {
           
           {/* Name */}
           <motion.h1 
-            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-[#121212]"
+            className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-gray-900"
             variants={itemVariants}
           >
             Abdul Mueid
@@ -159,11 +176,9 @@ const Hero = ({ id }) => {
               href="https://wa.me/923299655094?text=Hello%20I%20saw%20your%20portfolio%20great%20connecting%20with%20you👋"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 border-2 border-green-500 text-green-500 font-semibold rounded-xl hover:bg-[#121212] hover:text-white transition-all duration-300 inline-block text-center"
+              className="px-8 py-4 border-2 border-green-600 text-green-600 font-semibold rounded-lg hover:bg-green-600 hover:text-white transition-all duration-300 inline-block text-center"
               variants={buttonVariants}
-              whileHover={{
-               backgroundColor: "green",
-              }}
+              whileHover="hover"
               whileTap="tap"
             >
               Chat on WhatsApp

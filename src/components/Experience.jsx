@@ -35,19 +35,37 @@ export default function ExperienceSection({id}) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        staggerChildren: 0.05,
+        staggerDirection: -1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
         duration: 0.6,
         ease: "easeOut"
+      }
+    },
+    exit: {
+      opacity: 0,
+      y: -30,
+      scale: 0.95,
+      transition: {
+        duration: 0.4,
+        ease: "easeIn"
       }
     }
   };
@@ -65,7 +83,7 @@ export default function ExperienceSection({id}) {
   };
 
  return ( 
-  <section id={id} className="py-20 bg-white relative">
+  <section id={id} className="py-20 bg-[#FEFEFE] relative">
     <div className="max-w-6xl mx-auto px-6">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -73,8 +91,8 @@ export default function ExperienceSection({id}) {
         transition={{ duration: 0.8 }}
         className="text-center mb-12"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-[#121212] mb-6">
-          💼  Experience
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+          Experience
         </h2>
         <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
           Professional journey and growth in frontend development
@@ -91,7 +109,7 @@ export default function ExperienceSection({id}) {
         {experiences.map((exp, i) => (
           <motion.div
             key={i}
-            className="bg-white p-6 text-left rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg"
+            className="bg-[#FEFEFE] rounded-2xl shadow-sm border border-gray-200 p-6 text-left hover:border-blue-400 transition-all duration-300"
             style={{
               scrollSnapAlign: 'start',
               boxShadow: "inset 0 0 20px rgba(3, 3, 3, 0.2)"
@@ -109,7 +127,7 @@ export default function ExperienceSection({id}) {
                 className="w-16 h-16 object-contain rounded-lg"
               />
               <div>
-                <h3 className="text-xl font-semibold text-[#121212]">
+                <h3 className="text-xl font-semibold text-gray-900">
                   {exp.company}
                 </h3>
                 <p className="text-[#2563EB] font-medium">{exp.role}</p>
@@ -119,9 +137,12 @@ export default function ExperienceSection({id}) {
               </div>
             </div>
 
-            <p className="text-[#6B7280] leading-relaxed mb-4">
+            <motion.p 
+              className="text-[#6B7280] leading-relaxed mb-4"
+              variants={itemVariants}
+            >
               {exp.description}
-            </p>
+            </motion.p>
 
             {/* Skills */}
             <div className="flex flex-wrap gap-2">

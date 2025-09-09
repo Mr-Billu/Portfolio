@@ -23,19 +23,37 @@ const About = ({ id }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        staggerChildren: 0.05,
+        staggerDirection: -1
       }
     }
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
         duration: 0.6,
         ease: "easeOut"
+      }
+    },
+    exit: {
+      opacity: 0,
+      y: -30,
+      scale: 0.95,
+      transition: {
+        duration: 0.4,
+        ease: "easeIn"
       }
     }
   }
@@ -77,7 +95,7 @@ const About = ({ id }) => {
   }
 
   return (
-    <section id={id} className="py-20 bg-white relative">
+    <section id={id} className="py-20 bg-[#FEFEFE] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div 
@@ -86,9 +104,9 @@ const About = ({ id }) => {
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#121212]">
-            About 
-         </h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+            About
+          </h2>
           <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
             Passionate frontend developer with a keen eye for design and user experience
           </p>
@@ -103,13 +121,19 @@ const About = ({ id }) => {
           {/* Left Column - Personal Info */}
           <motion.div variants={itemVariants}>
             <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-[#121212] mb-4">Who I Am</h3>
-              <p className="text-[#6B7280] leading-relaxed text-lg">
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Who I Am</h3>
+              <motion.p 
+                className="text-[#6B7280] leading-relaxed text-lg"
+                variants={itemVariants}
+              >
                 As a frontend developer, I focus on building intuitive, visually appealing, and high-performance web interfaces. My expertise lies in transforming ideas and designs into seamless user experiences using the latest web technologies.
-              </p>
-              <p className="text-[#6B7280] leading-relaxed text-lg">
+              </motion.p>
+              <motion.p 
+                className="text-[#6B7280] leading-relaxed text-lg"
+                variants={itemVariants}
+              >
                 I thrive on solving real-world problems through code, and I enjoy collaborating with teams to deliver pixel-perfect, responsive, and accessible applications. Staying updated with modern frameworks and best practices is at the core of my approach to frontend development.
-              </p>
+              </motion.p>
               
               {/* Personal Details */}
               <div className="grid grid-cols-2 gap-4 mt-8">
@@ -121,7 +145,7 @@ const About = ({ id }) => {
                 ].map((item, index) => (
                   <motion.div 
                     key={item.label}
-                    className="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm "
+                    className="bg-[#FEFEFE] p-4 rounded-2xl border border-gray-200 shadow-sm "
                     style={{
                       scrollSnapAlign: 'start',
                       boxShadow: "inset 0 0 10px rgba(3, 3, 3, 0.2)"
@@ -135,7 +159,7 @@ const About = ({ id }) => {
                     transition={{ delay: 0 + index * 0.1 }}
                   >
                     <h4 className={`text-${item.color}-600 font-semibold mb-2`}>{item.label}</h4>
-                    <p className="text-[#121212]">{item.value}</p>
+                    <p className="text-gray-900">{item.value}</p>
                   </motion.div>
                 ))}
               </div>
@@ -144,7 +168,7 @@ const About = ({ id }) => {
 
           {/* Right Column - Skills */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-semibold text-[#121212] mb-6">Technical Skills</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-6">Technical Skills</h3>
             
             {/* Skill Bars */}
             <div className="space-y-4 mb-8">
@@ -175,12 +199,12 @@ const About = ({ id }) => {
 
             {/* Technologies Grid */}
             <div>
-              <h4 className="text-lg font-semibold text-[#121212] mb-4">Technologies & Tools</h4>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Technologies & Tools</h4>
               <div className="flex flex-wrap gap-2">
                 {technologies.map((tech, index) => (
                   <motion.span 
                     key={tech}
-                    className="px-3 py-1 bg-white text-[#6B7280] rounded-full text-sm border border-gray-200 hover:border-[#2563EB] hover:text-[#2563EB] transition-all duration-300 cursor-pointer shadow-sm"
+                    className="px-3 py-1 bg-[#FEFEFE] text-[#6B7280] rounded-full text-sm border border-gray-200 hover:border-[#2563EB] hover:text-[#2563EB] transition-all duration-300 cursor-pointer shadow-sm"
                     custom={index}
                     variants={techVariants}
                     initial="hidden"
@@ -207,7 +231,7 @@ const About = ({ id }) => {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.div 
-            className="bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg"
+            className="bg-[#FEFEFE] p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg"
             style={{
               scrollSnapAlign: 'start',
               boxShadow: "inset 0 0 20px rgba(3, 3, 3, 0.2)"
@@ -218,7 +242,7 @@ const About = ({ id }) => {
               boxShadow: "inset 0 0 100px rgba(3, 3, 3, 0.2)"
             }}
           >
-            <h3 className="text-2xl font-semibold text-[#121212] mb-4">What Drives Me</h3>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">What Drives Me</h3>
             <p className="text-[#6B7280] text-lg max-w-4xl mx-auto leading-relaxed">
               I believe in the power of clean, maintainable code and user-centered design. Every project I work on 
               is an opportunity to learn something new and push the boundaries of what's possible on the web. 

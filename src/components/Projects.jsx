@@ -67,19 +67,37 @@ const Projects = ({ id }) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        staggerChildren: 0.05,
+        staggerDirection: -1
       }
     }
   }
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
         duration: 0.6,
         ease: "easeOut"
+      }
+    },
+    exit: {
+      opacity: 0,
+      y: -50,
+      scale: 0.95,
+      transition: {
+        duration: 0.4,
+        ease: "easeIn"
       }
     }
   }
@@ -100,7 +118,7 @@ const Projects = ({ id }) => {
   }
 
   return (
-    <section id={id} className="py-20 bg-white relative">
+    <section id={id} className="py-20 bg-[#FEFEFE] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div 
@@ -109,8 +127,8 @@ const Projects = ({ id }) => {
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#121212]">
-            Projects
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+           Projects
           </h2>
           <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
             A collection of projects that showcase my skills and passion for web development
@@ -129,7 +147,7 @@ const Projects = ({ id }) => {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg group"
+              className="bg-[#FEFEFE] rounded-xl overflow-hidden border border-gray-200 hover:border-blue-500 transition-all duration-300 group shadow-sm hover:shadow-lg"
               style={{
                 scrollSnapAlign: 'start',
                 boxShadow: "inset 0 0 20px rgba(3, 3, 3, 0.2)"
@@ -146,8 +164,13 @@ const Projects = ({ id }) => {
             
               {/* Project Content */}
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-[#121212] mb-3 group-hover:text-[#2563EB] transition-colors duration-300">{project.title}</h3>
-                <p className="text-[#6B7280] text-sm leading-relaxed mb-4">{project.description}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">{project.title}</h3>
+                <motion.p 
+                  className="text-[#6B7280] text-sm leading-relaxed mb-4"
+                  variants={cardVariants}
+                >
+                  {project.description}
+                </motion.p>
                 
                 {/* Technologies */}
                 <div className="flex flex-wrap gap-2 mb-6">

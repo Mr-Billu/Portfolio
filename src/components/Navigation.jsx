@@ -48,7 +48,7 @@ const Navigation = ({ activeSection }) => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-blue-600">
+            <h1 className="text-2xl font-bold text-gray-900">
               Abdul Mueid
             </h1>
           </div>
@@ -117,7 +117,7 @@ const Navigation = ({ activeSection }) => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 rounded-lg mt-2 border border-gray-200 shadow-lg">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[#FEFEFE]/95 rounded-lg mt-2 border border-gray-200 shadow-lg">
               {navItems.map((item) => (
                 <button
                   key={item.id}
