@@ -1,258 +1,141 @@
-import { motion } from 'framer-motion'
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { motion } from "framer-motion";
+// import { GitBranch, ExternalLink , MessageCircle, Mail, Send } from "lucide-react";
+import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { MdMail, MdSend } from 'react-icons/md';
 
-const About = ({ id }) => {
-  const isVisible = useIntersectionObserver(id)
+const stats = [
+  { value: "8+", label: "Months Experience" },
+  { value: "12+", label: "Projects Completed" },
+  { value: "12+", label: "Technologies" },
+  { value: "100%", label: "Dedication" },
+];
 
-  const skills = [
-    { name: 'React.js', level: 30, color: 'from-blue-500 to-blue-600' },
-    { name: 'JavaScript', level: 65, color: 'from-yellow-500 to-yellow-600' },
-    { name: 'HTML/CSS', level: 90, color: 'from-orange-500 to-orange-600' },
-    { name: 'Tailwind CSS', level: 85, color: 'from-cyan-500 to-cyan-600' },
-    { name: 'Git', level: 60, color: 'from-red-500 to-red-600' },
-  ]
-
-  const technologies = [
-    'React.js', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS',
-     'Git', 'GitHub',
-    'VS Code', 'Figma', 'Responsive Design'
-  ]
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    },
-    exit: {
-      opacity: 0,
-      transition: {
-        staggerChildren: 0.05,
-        staggerDirection: -1
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    },
-    exit: {
-      opacity: 0,
-      y: -30,
-      scale: 0.95,
-      transition: {
-        duration: 0.4,
-        ease: "easeIn"
-      }
-    }
-  }
-
-  const skillBarVariants = {
-    hidden: { width: 0 },
-    visible: (level) => ({
-      width: `${level}%`,
-      transition: {
-        duration: 1.5,
-        ease: "easeOut",
-        delay: 0.5
-      }
-    })
-  }
-
-  const techVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: (i) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.3,
-        delay: i * 0.05
-      }
-    })
-  }
-
-  const cardVariants = {
-    hover: {
-      y: -5,
-      scale: 1.03,
-      boxShadow: "0 12px 25px rgba(37, 99, 235, 0.2)",
-      transition: {
-        duration: 0.3,
-        ease: "easeInOut"
-      }
-    }
-  }
-
+export function About() {
   return (
-    <section id={id} className="py-20 bg-[#FEFEFE] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-            About
-          </h2>
-          <p className="text-xl text-[#6B7280] max-w-3xl mx-auto">
-            Passionate frontend developer with a keen eye for design and user experience
-          </p>
-        </motion.div>
+    <section id="about" className="relative px-6 py-32 md:py-40">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12">
+          <p className="eyebrow text-accent">About Me</p>
+          <div className="mt-2 h-px w-16 bg-accent" />
+        </div>
 
-        <motion.div 
-          className="grid lg:grid-cols-2 gap-12 items-center"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-        >
-          {/* Left Column - Personal Info */}
-          <motion.div variants={itemVariants}>
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Who I Am</h3>
-              <motion.p 
-                className="text-[#6B7280] leading-relaxed text-lg"
-                variants={itemVariants}
-              >
-                As a frontend developer, I focus on building intuitive, visually appealing, and high-performance web interfaces. My expertise lies in transforming ideas and designs into seamless user experiences using the latest web technologies.
-              </motion.p>
-              <motion.p 
-                className="text-[#6B7280] leading-relaxed text-lg"
-                variants={itemVariants}
-              >
-                I thrive on solving real-world problems through code, and I enjoy collaborating with teams to deliver pixel-perfect, responsive, and accessible applications. Staying updated with modern frameworks and best practices is at the core of my approach to frontend development.
-              </motion.p>
-              
-              {/* Personal Details */}
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                {[
-                  { label: 'Experience', value: '4 months', color: 'blue' },
-                  { label: 'Projects', value: '12 project completed', color: 'purple' },
-                  { label: 'Technologies', value: '4 Mastered', color: 'pink' },
-                  { label: 'Passion', value: '100% Dedicated', color: 'green' }
-                ].map((item, index) => (
-                  <motion.div 
-                    key={item.label}
-                    className="bg-[#FEFEFE] p-4 rounded-2xl border border-gray-200 shadow-sm "
-                    style={{
-                      scrollSnapAlign: 'start',
-                      boxShadow: "inset 0 0 10px rgba(3, 3, 3, 0.2)"
-                    }}
-                  whileHover={{
-                    boxShadow: "inset 0 0 60px rgba(3, 3, 3, 0.2)"
-                  }}
-                    variants={cardVariants}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0 + index * 0.1 }}
-                  >
-                    <h4 className={`text-${item.color}-600 font-semibold mb-2`}>{item.label}</h4>
-                    <p className="text-gray-900">{item.value}</p>
-                  </motion.div>
-                ))}
-              </div>
+        <div className="grid gap-6 md:grid-cols-12">
+          {/* Left card */}
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+  className="rounded-3xl border border-border bg-card p-8 md:col-span-3"
+          >
+            <div>
+              <h3 className="text-2xl font-black tracking-tight">
+                Abdul <span className="text-serif-italic font-normal">Mueid</span>
+              </h3>
+              <p className="mt-1 text-[11px] font-semibold tracking-[0.25em] text-muted-foreground">PAKISTAN</p>
             </div>
-          </motion.div>
 
-          {/* Right Column - Skills */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6">Technical Skills</h3>
-            
-            {/* Skill Bars */}
-            <div className="space-y-4 mb-8">
-              {skills.map((skill, index) => (
-                <motion.div 
-                  key={skill.name} 
-                  className="space-y-2"
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isVisible ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.5 + index * 0.1 }}
-                >
-                  <div className="flex justify-between items-center">
-                    <span className="text-[#6B7280] font-medium">{skill.name}</span>
-                    <span className="text-[#2563EB] font-semibold">{skill.level}%</span>
+            <div className="mt-10 grid grid-cols-2 gap-y-8">
+              {stats.map((s) => (
+                <div key={s.label}>
+                  <div className="text-4xl font-black tracking-tight">{s.value}</div>
+                  <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    {s.label}
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-                    <motion.div 
-                      className={`h-2 bg-gradient-to-r ${skill.color} rounded-full`}
-                      custom={skill.level}
-                      variants={skillBarVariants}
-                      initial="hidden"
-                      animate={isVisible ? "visible" : "hidden"}
-                    />
-                  </div>
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            {/* Technologies Grid */}
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Technologies & Tools</h4>
-              <div className="flex flex-wrap gap-2">
-                {technologies.map((tech, index) => (
-                  <motion.span 
-                    key={tech}
-                    className="px-3 py-1 bg-[#FEFEFE] text-[#6B7280] rounded-full text-sm border border-gray-200 hover:border-[#2563EB] hover:text-[#2563EB] transition-all duration-300 cursor-pointer shadow-sm"
-                    custom={index}
-                    variants={techVariants}
-                    initial="hidden"
-                    animate={isVisible ? "visible" : "hidden"}
-                    whileHover={{
-                      scale: 1.05,
-                      y: -2,
-                      boxShadow: "0 5px 15px rgba(37, 99, 235, 0.2)"
-                    }}
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
-              </div>
+            <div className="mt-12 flex gap-3">
+              {[
+                { Icon: FaGithub, href: "https://github.com/abdulmueid" },
+                { Icon: FaLinkedin, href: "https://linkedin.com/in/abdulmueid" },
+                { Icon: FaWhatsapp, href: "https://wa.me/923299655094" },
+              ].map(({ Icon, href }, i) => (
+                <a
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-foreground/40 hover:text-foreground"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
             </div>
           </motion.div>
-        </motion.div>
 
-        {/* Additional Info */}
-        <motion.div 
-          className="mt-16 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <motion.div 
-            className="bg-[#FEFEFE] p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg"
-            style={{
-              scrollSnapAlign: 'start',
-              boxShadow: "inset 0 0 20px rgba(3, 3, 3, 0.2)"
-            }}
-            whileHover={{
-              y: -5,
-              scale: 1.03,
-              boxShadow: "inset 0 0 100px rgba(3, 3, 3, 0.2)"
-            }}
+          {/* Middle card */}
+          <motion.div
+             initial={{ opacity: 0, scale: 0.9 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+  className="rounded-3xl border border-border bg-card p-8 md:col-span-6 md:p-12"
           >
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">What Drives Me</h3>
-            <p className="text-[#6B7280] text-lg max-w-4xl mx-auto leading-relaxed">
-              I believe in the power of clean, maintainable code and user-centered design. Every project I work on 
-              is an opportunity to learn something new and push the boundaries of what's possible on the web. 
-              I'm always excited to collaborate with teams that share my passion for excellence and innovation.
+            <p className="eyebrow text-accent">Detail Driven UI</p>
+            <h2 className="mt-5 text-5xl font-black leading-[0.95] tracking-tight md:text-6xl">
+              Interfaces
+              <br />
+              <span className="text-serif-italic font-normal text-muted-foreground">you can feel.</span>
+            </h2>
+            <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground">
+              I&apos;m a frontend developer focused on building intuitive, high-performance web interfaces.
+              My expertise spans from pixel-perfect React applications to full WordPress site builds. I
+              thrive at the intersection of engineering and design — turning ideas into experiences that works for real
+              users.
             </p>
+
+            <div className="mt-10 flex flex-wrap justify-end gap-2">
+              <span className="rounded-full border border-border bg-background/40 px-4 py-1.5 text-[11px] font-semibold tracking-[0.15em] text-muted-foreground">
+                DESIGN
+              </span>
+              <span className="rounded-full border border-border bg-background/40 px-4 py-1.5 text-[11px] font-semibold tracking-[0.15em] text-muted-foreground">
+                DEVELOPMENT
+              </span>
+            </div>
           </motion.div>
-        </motion.div>
+
+          {/* Right card */}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+  className="rounded-3xl border border-border bg-card p-8 md:col-span-3"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[10px] font-medium tracking-[0.2em] text-accent">
+              
+              OPEN TO WORK
+            </span>
+
+            <h3 className="mt-10 text-3xl font-black leading-tight tracking-tight md:text-4xl">
+              Let&apos;s build
+              <br />
+              <span className="text-serif-italic font-normal text-muted-foreground">the future.</span>
+            </h3>
+
+            <div className="mt-10 space-y-3">
+              <a
+                href="mailto:abdulmueid051@gmail.com"
+                className="flex items-center gap-2 rounded-full border border-border bg-background/40 px-4 py-3 text-xs text-muted-foreground transition-colors hover:text-foreground"
+              >
+                <MdMail className="h-4 w-4" />
+                <span className="truncate">abdulmueid051@gmail.com</span>
+              </a>
+              <a
+                href="https://wa.me/923299655094"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 rounded-full bg-foreground px-4 py-3 text-xs font-bold tracking-[0.2em] text-background transition-transform hover:scale-[1.02]"
+              >
+                <MdSend className="h-4 w-4" />
+                CONNECT NOW
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
-  )
+  );
 }
-
-export default About

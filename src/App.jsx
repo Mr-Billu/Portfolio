@@ -1,48 +1,51 @@
-import { useState, useEffect } from 'react'
-import './App.css'
-
-// Components
-import Hero from './components/Hero'
-import About from './components/About'
-import Projects from './components/Projects'
-import Experience from './components/Experience'
-import Navigation from './components/Navigation'
-import Footer from './components/Footer'
+import './index.css'
+import { useEffect } from 'react'
+import Lenis from 'lenis'
+import { Navbar } from './components/Navigation'
+import { Hero } from './components/Hero'
+import { About } from './components/About'
+import { Marquee } from './components/Marquee'
+import { Work } from './components/Work'
+import { Skills } from './components/Skills'
+import { ScrollText } from './components/ScrollText'
+import { Experience } from './components/Experience'
+import { Contact } from './components/Contact'
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home')
-
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'projects', 'experience', 'contact']
-      const scrollPosition = window.scrollY + 100
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    })
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const element = document.getElementById(sections[i])
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i])
-          break
-        }
-      }
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
     }
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    requestAnimationFrame(raf)
+    lenis.on('scroll', () => {
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new Event('scroll'))
+      }
+    })
+
+    return () => lenis.destroy()
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#FEFEFE] text-gray-900 overflow-x-hidden">
-      <Navigation activeSection={activeSection} />
-      
-      <main className="relative z-10">
-        <Hero id="home" />
-        <About id="about" />
-        <Projects id="projects" />
-        <Experience id="experience" />
-      </main>
-      
-      <Footer />
-    </div>
+    <main className="relative min-h-screen bg-background text-foreground">
+      <Navbar />
+      <Hero />
+      <About />
+      <Marquee />
+      <Work />
+      <Skills />
+      <ScrollText />
+      <Experience />
+      <Contact />
+    </main>
   )
 }
 
