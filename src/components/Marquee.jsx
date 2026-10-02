@@ -49,7 +49,7 @@ export function Marquee() {
               transition={{ duration: 0.4, ease: [0.42, 1, 0.36, 1] }}
             >
               <span className="text-4xl font-black tracking-wide md:text-8xl">
-                {current.text}<span  className="text-accent">{current.star}</span>
+                {current.text}<span className="inline-block w-[0.24em] h-[0.24em] rounded-full bg-accent " />
               </span>
             </motion.div>
           </AnimatePresence>

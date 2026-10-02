@@ -2,10 +2,10 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const frontendSkills = [
+  { name: "REACT.JS", slug: "react", color: "61DAFB" },
   { name: "HTML5", slug: "html5", color: "E34F26" },
   { name: "CSS3", slug: "css3", color: "1572B6", fallbackUrl: "https://img.icons8.com/color/144/css3.png" },
   { name: "JAVASCRIPT", slug: "javascript", color: "F7DF1E" },
-  { name: "REACT.JS", slug: "react", color: "61DAFB" },
   { name: "TAILWIND CSS", slug: "tailwindcss", color: "06B6D4" },
   { name: "GIT & GITHUB", slug: "git", color: "F05032" },
   { name: "FIGMA", slug: "figma", color: "F24E1E" },
@@ -16,10 +16,12 @@ const cmsSkills = [
   { name: "WORDPRESS", slug: "wordpress", color: "21759B" },
   { name: "ELEMENTOR", slug: "elementor", color: "E0005C" },
   { name: "WOOCOMMERCE", slug: "woocommerce", color: "96588A", fallbackUrl: "https://img.icons8.com/color/144/woocommerce.png" },
-  { name: "MAILCHIMP", slug: "mailchimp", color: "FFE01B" }
+  { name: "MAILCHIMP", slug: "mailchimp", color: "FFE01B" },
+  { name: "PLUGINS", slug: "wordpress", color: "0073AA" }
 ];
 
 const aiSkills = [
+ { name: "LOVABLE", slug: "lovable", color: "FF5722", fallbackUrl:"https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/lovable.svg" },
   { name: "GEMINI", slug: "googlegemini", color: "8E70FF" },
   { name: "COPILOT", slug: "githubcopilot", color: "FFFFFF" },
   { name: "CLAUDE", slug: "claude", color: "D97F56" },

@@ -2,6 +2,14 @@ import { motion, useScroll, useTransform, AnimatePresence, useSpring } from "fra
 import { useState, useRef, useEffect } from "react";
 import { FaGithub } from "react-icons/fa6";
 import { FiX, FiArrowUpRight } from "react-icons/fi";
+import todoImage from "../assets/todo-image.png";
+import totalDryIceImage from "../assets/TDIB-image.png";
+import invoiceGeneratorImage from "../assets/invoive-generator-image.png";
+import weatherAppImage from "../assets/weatherapp-image.png";
+import simulatorSocialClubImage from "../assets/simulator-social-club-image.png";
+import allianceRemediationImage from "../assets/alliance-remediation-image.png";
+import woodCookersImage from "../assets/woodcookers-image.png";
+import wildBoarShedsImage from "../assets/Wildboarsheds-image.png";
 
 const projects = [
   {
@@ -12,86 +20,79 @@ const projects = [
     tags: ["MONGODB", "EXPRESS", "REACT", "NODE", "CRUD"],
     href: "https://github.com/Mr-Billu/mern-todo-app",
     live: "",
-    preview:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop", 
+    preview: todoImage,
   },
   {
     category: "DEVELOPMENT",
     title: "INVOICE GENERATOR",
     description:
-      "A clean and intuitive invoice creation tool engineered purely using standard HTML, CSS, and vanilla JavaScript. Handles on-the-fly mathematical calculations for items, tax rates, and totals dynamically through raw DOM manipulation. Outputs perfectly formatted, print-ready document structures directly inside the browser window.",
-    tags: ["JAVASCRIPT", "HTML", "CSS", "DOM"],
-    href: "https://github.com/Mr-Billu",
+      "A front-end mockup of an invoice and quote generator I originally built as a real, fully working system for a business, on WordPress with custom PHP code. That version handles real client work, so I can't link to it or give access to it. This is a rebuilt demo in plain REACT, HTML, TAILWIND CSS, and JavaScript that shows the same core idea: put together a quote or invoice, then send it out as a PDF straight to the admin. It's a mockup only, not fully functional, and the demo is locked behind the password generator123 just so it isn't sitting open to anyone.",
+    tags: ["REACT", "JAVASCRIPT", "HTML", "CSS", "DOM"],
+    href: "https://github.com/Mr-Billu/Invoice-generator",
     live: "https://mr-billu.github.io/Invoice-generator/",
-    preview:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop", 
+    preview: invoiceGeneratorImage,
   },
   {
     category: "DEVELOPMENT",
     title: "WEATHER APP",
     description:
-      "A sleek front-end dashboard that delivers accurate meteorological updates by querying external RESTful API endpoints. Uses native JavaScript fetch requests to retrieve atmospheric metrics, parsing real-time regional coordinates and tracking dynamic global forecasts. Automatically formats responsive, fluid visual layouts based on localized telemetry.",
+      "One of my earliest projects, built in plain HTML, CSS, and JavaScript. It calls a weather API to pull real-time conditions for a location and displays them on the page. There's no live deployment for this one, just the source code in the repo. It was my first time working with an external API, and it shows in a few rough edges, but it's where I actually learned how fetch requests and API responses work.",
     tags: ["JAVASCRIPT", "HTML", "CSS", "API"],
-    href: "https://github.com/Mr-Billu",
+    href: "https://github.com/Mr-Billu/weatherApp-page",
     live: "",
-    preview:
-      "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=800&auto=format&fit=crop", 
+    preview: weatherAppImage,
+  },
+  {
+    category: "WORDPRESS",
+    title: "TOTAL DRY ICE",
+    description:
+      "Built entirely from scratch in WordPress and Elementor for a mobile dry ice blasting company, this is a 10-page site covering everything from services and industries served to a working quote form. The brand needed a dark, technical look that felt industrial rather than corporate, so I built a custom corner-bracket image framing style and carried it through every section instead of relying on stock Elementor widgets. Stats, process steps, before-and-after results, all built in elementor to match one strict design system: exact fonts, exact colors, exact spacing, no shortcuts.",
+    tags: ["WORDPRESS", "ELEMENTOR", "PLUGINS", "CUSTOM UI DESIGN"],
+    href: "",
+    live: "https://totaldryice.com/",
+    preview: totalDryIceImage,
   },
   {
     category: "WORDPRESS",
     title: "SIMULATOR SOCIAL CLUB",
     description:
-      "A bespoke, premium digital environment tailored for an elite motorsport racing social collective. Built ground-up with custom WordPress workflows, utilizing element-level styling architectures and high-fidelity media assets. Fully optimized for lightning-fast asset loading, featuring sophisticated component synchronization and immersive dark-mode typography frameworks.",
-    tags: ["WORDPRESS", "ELEMENTOR", "CUSTOM CSS", "DARK THEME"],
+      "A single-page site for a premium sim-racing social club in Sarasota, Florida. The design came from Lovable and I built it out in WordPress and Elementor, including custom code to get the autoplaying hero video working the way the design called for. The whole page runs around a membership waitlist, from the founding-member pitch down to the sign-up form, which is connected straight to Mailchimp so leads land in their list automatically. Kept it dark and moody to match the club's whole 'private motorsports club, not an arcade' angle.",
+    tags: ["WORDPRESS", "ELEMENTOR", "PLUGINS", "UI DESIGN", "DARK THEME"],
     href: "",
     live: "https://simulatorsocialclub.com",
-    preview:
-      "https://images.unsplash.com/photo-1547949003-9792a18a2601?q=80&w=800&auto=format&fit=crop", 
+    preview: simulatorSocialClubImage,
   },
   {
     category: "WORDPRESS",
     title: "ALLIANCE REMEDIATION",
     description:
-      "A clean, enterprise-focused web infrastructure built from absolute scratch for an environmental remediation firm. Employs advanced custom responsive break-points, multi-tiered structural service hierarchies, and highly secure automated customer lead-generation funnels. Specifically engineered for extreme accessibility, strict structural semantics, and localized engine discoverability.",
-    tags: ["WORDPRESS", "ELEMENTOR", "CUSTOM DESIGN", "RESPONSIVE"],
+      "A 10-page site for a Melbourne restoration company that handles water damage, fire and smoke damage, mould remediation, and even meth-lab decontamination, the kind of work that runs 24/7 because none of it can wait. Built from scratch in WordPress and Elementor with the same approach as Total Dry Ice: clean, technical structure, individual service pages instead of one long scroll, and a fully working contact form wired up through SMTP so enquiries actually land in their inbox instead of disappearing into a WordPress mail queue.",
+    tags: ["WORDPRESS", "ELEMENTOR", "PLUGINS", "UI DESIGN", "RESPONSIVE"],
     href: "",
-    live: "",
-    preview:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop", 
-  },
-  {
-    category: "WORDPRESS",
-    title: "WILD BOAR SHEDS",
-    description:
-      "An extensive user-experience overhaul and micro-interaction refinement project for an industrial shed manufacturing client. Re-architected data tables, streamlined complex dimensional engineering product configurators, and standardized cross-browser visual spacing systems. Drastically upgraded interface accessibility baselines while scaling complex, heavy image libraries dynamically.",
-    tags: ["WORDPRESS", "ELEMENTOR", "UI REFINEMENT", "RESPONSIVE"],
-    href: "",
-    live: "",
-    preview:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=800&auto=format&fit=crop", 
+    live: "https://allianceremediation.com.au/",
+    preview: allianceRemediationImage,
   },
   {
     category: "WORDPRESS",
     title: "WOOD COOKERS",
     description:
-      "A comprehensive architecture integration combining massive WooCommerce variable product catalogs with highly complex customized scripts. Features a custom written vanilla JavaScript billing calculation workflow engineered to sit directly inside standard e-commerce transaction channels, maximizing industrial hardware variant matching and consumer checkout velocity.",
-    tags: ["WORDPRESS", "WOOCOMMERCE", "JAVASCRIPT", "UI REFINEMENT"],
+      "An ongoing WooCommerce build for an Australian wood stove and heater retailer, official distributor for J.A. Roby and a handful of other international brands. Built in WordPress and Elementor, and I'm still actively involved: adding new products, building out new pages, and maintaining the front end as the catalogue grows. I also put together a small custom quote and invoicing tool for the checkout side, built in PHP, HTML, CSS, and jQuery, though that's a minor piece next to the day-to-day storefront work.",
+    tags: ["WORDPRESS", "WOOCOMMERCE","CUSTOM CODE","PHP", "PLUGINS", "JAVASCRIPT", "UI REFINEMENT"],
     href: "",
     live: "https://woodcookers.com.au",
-    preview:
-      "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=800&auto=format&fit=crop", 
+    preview: woodCookersImage,
   },
   {
     category: "WORDPRESS",
-    title: "FORTITUDE CAREER",
+    title: "WILD BOAR SHEDS",
     description:
-      "A complete top-to-bottom redesign and deployment of an enterprise corporate career portal ecosystem. Features integrated structural filtering mechanisms for multi-department job listings, secure user-data document attachment submission portals, and streamlined operational routing paths designed to lower user drop-off metrics throughout multi-tier talent onboarding phases.",
-    tags: ["WORDPRESS", "ELEMENTOR", "CAREER PAGE", "REDESIGN"],
+      "An ecommerce site for an Australian family-run shed manufacturer, built entirely in WordPress and Elementor. I built out every page on the site: garages, farm sheds, barns, cottages, and the individual shed material and component listings that make up their catalogue. The whole thing is set up around their range of flat-pack steel buildings, so the goal was to make it easy to browse by shed type and get a quote without digging through menus.",
+    tags: ["WORDPRESS", "ELEMENTOR", "PLUGINS", "UI REFINEMENT", "RESPONSIVE"],
     href: "",
-    live: "",
-    preview:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop", 
+    live: "https://wildboarsheds.com.au/",
+    preview: wildBoarShedsImage,
   },
+  
 ];
 
 function ProjectDetail({ project, onClose }) {
@@ -133,6 +134,7 @@ function ProjectDetail({ project, onClose }) {
         }
       `}</style>
 
+      {/* Frosted Glass Background Overlay */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -140,9 +142,9 @@ function ProjectDetail({ project, onClose }) {
         transition={{ duration: 0.35 }}
         className="fixed inset-0 z-40 cursor-pointer"
         style={{
-          background: "rgba(0, 0, 0, 0.60)",
-          backdropFilter: "blur(25px)",
-          WebkitBackdropFilter: "blur(25px)",
+          background: "rgba(0, 0, 0, 0.7)",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
         }}
         onClick={handleInstantClose}
       />
@@ -156,7 +158,16 @@ function ProjectDetail({ project, onClose }) {
         <FiX size={20} />
       </button>
 
-      <div className="work-overlay-scroll fixed inset-0 z-50 overflow-y-auto flex items-start justify-center px-6 pt-4 pb-6 md:px-16 md:pt-8 md:pb-16 pointer-events-none">
+      <div
+        className="work-overlay-scroll fixed inset-0 z-50 overflow-y-auto flex items-start justify-center px-6 pt-4 pb-6 md:px-16 md:pt-8 md:pb-16"
+        style={{ overscrollBehavior: "contain" }}
+        onWheel={(e) => e.stopPropagation()}
+        onClick={(e) => {
+          if (e.target === e.currentTarget) {
+            handleInstantClose();
+          }
+        }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -165,23 +176,19 @@ function ProjectDetail({ project, onClose }) {
           className="w-full max-w-3xl flex flex-col items-start text-left pointer-events-auto text-[#edebed] gap-8 py-12"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          <motion.h1
-            layoutId={`title-${project.title}`}
-            className="text-3xl md:text-5xl font-extrabold tracking-tight leading-none text-left w-full"
-            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {project.title}
-          </motion.h1>
-
           <motion.div
             layoutId="shared-project-image"
-            className="w-full aspect-[16/10] rounded-2xl overflow-hidden border border-[#1a1a1a] bg-[#111111]"
+            className="w-full rounded-2xl overflow-hidden border border-[#1a1a1a] bg-[#111111] flex items-center justify-center"
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
           >
             {project.preview ? (
-              <img src={project.preview} alt={project.title} className="w-full h-full object-cover" />
+              <img
+                src={project.preview}
+                alt={project.title}
+                className="w-full h-auto max-h-[60vh] object-contain object-top block"
+              />
             ) : (
-              <div className="w-full h-full flex items-center justify-center bg-black">
+              <div className="w-full aspect-[16/10] flex items-center justify-center bg-black">
                 <span className="text-2xl font-black text-[#1a1a1a]">
                   {project.title.split(" ").map((w) => w[0]).join("")}
                 </span>
@@ -252,10 +259,19 @@ export function Work() {
 
   useEffect(() => {
     if (!selectedProject) return;
-    const originalOverflow = document.body.style.overflow;
+
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalBodyTouchAction = document.body.style.touchAction;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
     document.body.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
+    document.documentElement.style.overflow = "hidden";
+
     return () => {
-      document.body.style.overflow = originalOverflow;
+      document.body.style.overflow = originalBodyOverflow;
+      document.body.style.touchAction = originalBodyTouchAction;
+      document.documentElement.style.overflow = originalHtmlOverflow;
     };
   }, [selectedProject]);
 
@@ -275,7 +291,6 @@ export function Work() {
   const listOpacity = useTransform(smoothProgress, [0.38, 0.5], [0, 1]);
   const listY = useTransform(smoothProgress, [0.38, 0.5], [24, 0]);
 
-  // FIX: Read safe index and preview metrics from "projects" directly
   const safeIndex = Math.min(hoveredIndex, projects.length - 1);
   const currentPreview = projects[safeIndex] || projects[0];
 
@@ -336,7 +351,7 @@ export function Work() {
                   style={{ border: "1px solid var(--border)", background: "var(--muted)" }}
                   transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <AnimatePresence mode="wait">
+                  <AnimatePresence>
                     <motion.div
                       key={currentPreview?.title}
                       initial={{ opacity: 0, scale: 1.04 }}
@@ -349,7 +364,7 @@ export function Work() {
                         <img
                           src={currentPreview.preview}
                           alt={currentPreview.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover object-top"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center" style={{ background: "var(--background)" }}>
@@ -390,7 +405,6 @@ export function Work() {
                 <div className="flex-1 h-px" style={{ background: "var(--border)" }} />
               </div>
 
-              {/* FIX: Directly mapping raw projects here */}
               <div className="flex flex-col w-[50%] max-w-xl">
                 {projects.map((p, i) => {
                   const isActive = safeIndex === i;
