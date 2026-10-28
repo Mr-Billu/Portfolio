@@ -38,7 +38,7 @@ A modern, responsive portfolio website built with React, Tailwind CSS, and Frame
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/portfolio.git
+   git clone https://github.com/Mr-Billu/Portfolio.git
    cd portfolio
    ```
 
@@ -71,7 +71,7 @@ This portfolio is configured for GitHub Pages deployment.
 
 1. **Push your code to GitHub**
    ```bash
-   git remote add origin https://github.com/yourusername/portfolio.git
+   git remote add origin https://github.com/Mr-Billu/Portfolio.git
    git branch -M main
    git push -u origin main
    ```

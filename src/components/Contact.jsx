@@ -11,7 +11,7 @@ const sitemap = [
 ];
 
 const connect = [
-  { label: "GITHUB", href: "https://github.com/abdulmueid" },
+  { label: "GITHUB", href: "https://github.com/Mr-Billu" },
   { label: "LINKEDIN", href: "https://linkedin.com/in/abdulmueid" },
   { label: "WHATSAPP", href: "https://wa.me/923299655094" },
   { label: "EMAIL", href: "mailto:abdulmueid051@gmail.com" },
@@ -115,7 +115,7 @@ export function Contact() {
           <div className="flex items-center gap-3">
             {[
               { Icon: MdMail, href: "mailto:abdulmueid051@gmail.com", label: "Email" },
-              { Icon: FaGithub, href: "https://github.com/abdulmueid", label: "GitHub" },
+              { Icon: FaGithub, href: "https://github.com/Mr-Billu", label: "GitHub" },
               { Icon: FaLinkedin, href: "https://linkedin.com/in/abdulmueid", label: "LinkedIn" },
               { Icon: FaWhatsapp, href: "https://wa.me/923299655094", label: "WhatsApp" },
             ].map(({ Icon, href, label }) => (

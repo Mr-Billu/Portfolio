@@ -9,7 +9,7 @@ Your portfolio will be available at: `http://localhost:5173`
 ## 2. Customize Your Portfolio
 
 ### Quick Personalization
-Edit `src/config/portfolio.js` to update:
+Update the relevant component files listed below to change portfolio content:
 - Your name and title
 - Contact information
 - Social media links
@@ -17,10 +17,10 @@ Edit `src/config/portfolio.js` to update:
 - Project details
 
 ### Key Files to Update
-- `src/config/portfolio.js` - Main configuration
+- `src/components/Work.jsx` - Project entries and links
 - `src/components/Hero.jsx` - Hero section content
 - `src/components/About.jsx` - About section content
-- `src/components/Projects.jsx` - Your projects
+- `src/components/Work.jsx` - Your projects
 - `src/components/Experience.jsx` - Work experience
 - `src/components/Contact.jsx` - Contact information
 
@@ -50,8 +50,8 @@ Edit `src/config/portfolio.js` to update:
    - Visit: `https://github.com/Mr-Billu`
    - Note down repository names and descriptions
 
-2. **Update Projects Array**
-   - Edit `src/config/portfolio.js`
+2. **Update Projects**
+   - Edit the project entries in `src/components/Work.jsx`
    - Replace sample projects with your actual repos
    - Add real project images
    - Update technologies used

@@ -48,7 +48,7 @@ transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
 
             <div className="mt-12 flex gap-3">
               {[
-                { Icon: FaGithub, href: "https://github.com/abdulmueid" },
+                { Icon: FaGithub, href: "https://github.com/Mr-Billu" },
                 { Icon: FaLinkedin, href: "https://linkedin.com/in/abdulmueid" },
                 { Icon: FaWhatsapp, href: "https://wa.me/923299655094" },
               ].map(({ Icon, href }, i) => (
